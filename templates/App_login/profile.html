@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  Profile Page
+{% endblock %}
+
+
+{% block content %}
+
+
+{% if user.user_profile.profile_pic %}
+  <div class='row'>
+    <div class='col-sm-3'>
+      <img src="{{ user.user_profile.profile_pics }}" class='rounded-circle' width='140px'>
+      <br>
+      <br>
+      <a href="{% url 'App_login:change-pic'%}" class='btn btn-info btn-sm'> Update Profile Picture </a>
+      <br>
+      <br>
+        <h2>Your Profile</h2>
+      <p>Username: {{ user.username }}</p>
+      <p>Email: {{ user.email }}</p>
+      <p>Name: {{ user.first_name }} {{ user.last_name }}</p>
+      <br>
+      <a class='btn btn-warning btn-sm' href="{% url 'App_login:change_profile'%}">Change Profile Info</a>
+    </div>
+    <div class='col-sm-9'>
+      <h2 class='container'>Information Of Your Articles</h2>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Likes</th>
+            <th scope="col">Unlikes</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">title</th>
+            <td>Likes</td>
+            <td>Unlikes</td>
+            <td>Date</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% else %}
+
+  <div class='row'>
+    <div class='col-sm-3'>
+      <img src="{% static 'img/anonim.jpg' %}" class='rounded-circle' width='140px'>
+      <br>
+      <br>
+      <a href="{% url 'App_login:change-pic'%}" class='btn btn-info btn-sm'> Update Profile Picture</a>
+      <br>
+      <br>
+        <h2>Your Profile</h2>
+      <p>Username: {{ user.username }}</p>
+      <p>Email: {{ user.email }}</p>
+      <p>Name: {{ user.first_name }} {{ user.last_name }}</p>
+      <br>
+      <a class='btn btn-warning btn-sm' href="{% url 'App_login:change_profile'%}">Change Profile Info</a>
+    </div>
+    <div class='col-sm-9'>
+      <h2 class='container'>Information Of Your Articles</h2>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Likes</th>
+            <th scope="col">Unlikes</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">title</th>
+            <td>Likes</td>
+            <td>Unlikes</td>
+            <td>Date</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+{% endif %}
+
+{% endblock %}

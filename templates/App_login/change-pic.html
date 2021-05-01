@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+  Change Picture Page
+{% endblock %}
+
+
+{% block content %}
+  <form method="POST" enctype="multipart/form-data" action="{% url 'App_login:change-pic'%}">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class='btn btn-success btn-sm'>Update Picture</button>
+  </form>
+    
+{% endblock %}
